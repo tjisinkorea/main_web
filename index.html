@@ -20,7 +20,8 @@
 						<div class="content">
 							<div class="inner">
 								<h1>i am tj kyong</h1>
-								<p>Update 7.27.21 - Fixed typos, added <a href="#blog">Blog Entry</a></p>
+								<p>Update 8.1.21 - Added <a href="#blog">Blog Entry</a></p>
+								<p>Update 7.27.21 - Fixed typos, added <a href="#archives072721">Blog Entry</a></p>
 							</div>
 						</div>
 						<nav>
@@ -138,31 +139,34 @@
 
 								<p>	<a href="#archives">Blog Archives</a> - Click here for previous posts.</p>
 
-								<p>July 27, 2021</p>
-								<p>I've steered my ship towards AWS. Upon investigating the AWS certs, I felt that I could skip the lowest level Cloud Practition certificate
-									and go straight for Solutions Architect - Associate (SAA-C02). I already have experience with EC2 and running Windows Instances to run 
-								    software that acts as a server for digital signage software, so so far it has been smooth sailing with the fundamentals but I'm sure 
-								the material will get more dense as I progress. What I have covered in the last few days: </p>
-								<ul>
-									<li>AWS Infrastructure, fundamentals</li>
-									<li>IAM management</li>
-									<li>EFS</li>
-									<li>EC2 instances, elastic IPs, load balancers, placement groups, security groups, snapshots</li>
-								</ul>
-								<p>I'm learning from a course taught by Stephane Maarek, which was highly recommended from various communities on the internet. The course is useful 
-									that there are hands-on sections where I can execute what I am learning on my AWS account. My goal is to complete the course in 2 weeks, and 
-									suppliment with other sources and practice exams. This would allow me to take the exam online late Aug. That is my goal. 
+								<p>August 1, 2021</p>
+								<p>I did something fun over the weekend. I ordered a RaspberryPi4 8GB RAM from Amazon... That's right, to Korea. It shipped in about 
+									10 days, and there was no import fees, and only $8 for shipping. It was a better deal than buying one locally.
 								</p>
-								<br>
-								<p>Although I have the goal, it does get stale just doing one thing! I have completed the Blockchain Python course on codecademy. It was 
-									insightful on how a blockchain can be created with Python, but also discouraging that my knowledge in Python is still very weak. I was 
-								able to complete the course but I really fumbled through it. However, it is to be expected since I have not completed any Python courses, 
-							    just tidbits here and there. </p>
-								<p>Everywhere I turn to on my learning journey, I hear things of SQL for data science. I was never enticed with the language, however, I am
-									getting an urge to look into it so that I can create my own personal database. Primarly, I'm interested in a password manager database... 
-									I know I can just subscribe to a service, but it would be cool to build one myself. 
+								<p>I messed around with some different builds. I tried the RETROPI emulator to play oldschool games. Neat, but I don't want to invest any time playing
+									those oldskool video games. I tried a few different flavors of Linux operating systems. I tried a build where I installed VMWare esxi hyperviser
+									so I can run multiple virtual machines simultaneously from my single Pi4. I thought this was going to be my permanent build, and it probably will,
+									but I got a little impatient with Linux Servers taking so long to set up via USB storage. 
 								</p>
-						
+								<p>So I decided to setup Raspbian OS and install Pi-Hole. Pi-Hole allows me to set up a custom local DNS that blocks ALL advertisements.
+									I SSH into my pi4 to access it's command line. Then here are the steps:</p>
+									<ul>
+										<li>Install Pi-Hole - sudo curl -sSL https://install.pi-hole.net | bash</li>
+										<li>Install Unbound DNS - sudo apt install unbound</li>
+										<li>Create Unbound Configuration File - sudo nano /etc/unbound/unbound.conf.d/pi-hole.conf</li>
+										<li>Copy example config - https://docs.pi-hole.net/guides/dns/unbound/</li>
+										<li>Restart Unbound to apply Configuration - sudo service unbound restart</li>
+										<li>Disable Forwarding DNS in PiHole</li>
+										<li>Set Custom DNS in PiHole - 127.0.0.1#5335</li>	
+										<li>Set custom DNS to my pi4 in any device that I want to block ads</li>
+									</ul>
+								</p>
+								<p>Not only does it block ads, I get a log of all the queries. Also, I can manually set whitelists and blacklists of domains. If I wanted to block 
+									certain sites like netflix or youtube to prevent people on my network from joining, I could. But If I wanted to authorize this totalitarian 
+									internet regime, I would have to change the DNS on my router, not on individual devices.
+								</p>
+								<p>It's pretty neat. No more ads on web browsers or Apps.</p>
+								
 
 
 								
@@ -216,14 +220,41 @@
 			<article id="archives">
 				<h2 class="major">Blog Archives.</h2>
 					<ul>
+						<li><a href="#archives072721">July 27th, 2021</a></li>
 						<li><a href="#archives071821">July 18th, 2021</a></li>
 						<li><a href="#archives071721">July 17th, 2021</a></li>
-						
-						
-						
 					</ul>
 			</article>
 
+
+								<!-- July 27 2021-->
+								<article id="archives072721">
+									<h2 class="major">What I'm learning.</h2>
+								<p>July 27, 2021</p>
+								<p>I've steered my ship towards AWS. Upon investigating the AWS certs, I felt that I could skip the lowest level Cloud Practition certificate
+									and go straight for Solutions Architect - Associate (SAA-C02). I already have experience with EC2 and running Windows Instances to run 
+									software that acts as a server for digital signage software, so so far it has been smooth sailing with the fundamentals but I'm sure 
+								the material will get more dense as I progress. What I have covered in the last few days: </p>
+								<ul>
+									<li>AWS Infrastructure, fundamentals</li>
+									<li>IAM management</li>
+									<li>EFS</li>
+									<li>EC2 instances, elastic IPs, load balancers, placement groups, security groups, snapshots</li>
+								</ul>
+								<p>I'm learning from a course taught by Stephane Maarek, which was highly recommended from various communities on the internet. The course is useful 
+									that there are hands-on sections where I can execute what I am learning on my AWS account. My goal is to complete the course in 2 weeks, and 
+									suppliment with other sources and practice exams. This would allow me to take the exam online late Aug. That is my goal. 
+								</p>
+								<br>
+								<p>Although I have the goal, it does get stale just doing one thing! I have completed the Blockchain Python course on codecademy. It was 
+									insightful on how a blockchain can be created with Python, but also discouraging that my knowledge in Python is still very weak. I was 
+								able to complete the course but I really fumbled through it. However, it is to be expected since I have not completed any Python courses, 
+								just tidbits here and there. </p>
+								<p>Everywhere I turn to on my learning journey, I hear things of SQL for data science. I was never enticed with the language, however, I am
+									getting an urge to look into it so that I can create my own personal database. Primarly, I'm interested in a password manager database... 
+									I know I can just subscribe to a service, but it would be cool to build one myself. 
+								</p>
+	
 
 								<!-- July 18 2021-->
 								<article id="archives071821">
